@@ -73,26 +73,15 @@
    *
    * ******************************************************************** *
 
-   * Users
-   * -----------
-
-   *User Number:
-   * You                     1    // Replace "You" with your name
-   * Next User               2    // Assign a user number to each additional collaborator of this code
-
-   *Set this value to the user currently using this file
-   global user  1
-
    * Root folder globals
    * ---------------------
 
-   if $user == 1 {
-       global projectfolder "C:\Users\wb501238\Documents\GitHub\Example-project-repo"
+   if inlist(c(username), "wb501238", "WB501238") == 1 {
+   
+		global github 	"C:\Users\wb501238\Documents\GitHub\Example-project-repo"
+		global dropbox	"C:\Users\wb501238\Dropbox\WB\Example project folder"
    }
 
-   if $user == 2 {
-       global projectfolder ""  // Enter the file path to the project folder for the next user here
-   }
 
 * These lines are used to test that the name is not already used (do not edit manually)
 *round*Baseline*bl**************************************************************
@@ -104,7 +93,7 @@
    * Project folder globals
    * ---------------------
 
-   global dataWorkFolder         "$projectfolder/DataWork"
+   global dataWorkFolder         "$dropbox/DataWork"
 
 *iefolder*1*FolderGlobals*subfolder*********************************************
 *iefolder will not work properly if the line above is edited
@@ -128,7 +117,7 @@
    global bl                     "$dataWorkFolder/Baseline" 
    global bl_encrypt             "$encryptFolder/Round Baseline Encrypted" 
    global bl_dt                  "$bl/DataSets" 
-   global bl_do                  "$bl/Dofiles" 
+   global bl_do                  "${github}/DataWork/Baseline/Dofiles" 
    global bl_out                 "$bl/Output" 
 
 *iefolder*1*FolderGlobals*endRounds*********************************************
@@ -147,7 +136,7 @@
    * standardization, different sets of control variables,
    * adofile paths etc.
 
-   do "$dataWorkFolder/global_setup.do" 
+   do "${github/DataWork/global_setup.do" 
 
 
 *iefolder*2*End_StandardGlobals*************************************************
@@ -175,9 +164,6 @@
 *iefolder*3*RunDofiles*Baseline*bl**********************************************
 *iefolder will not work properly if the line above is edited
 
-   if (0) { //Change the 0 to 1 to run the Baseline master dofile
-       do "$bl/Baseline_MasterDofile.do" 
-   }
 
 *iefolder*3*End_RunDofiles******************************************************
 *iefolder will not work properly if the line above is edited
