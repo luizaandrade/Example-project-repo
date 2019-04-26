@@ -6,10 +6,13 @@
 	foreach folder in github dropbox {
 	
 		* Create project folder
-		iefolder new project, projectfolder(${`folder'}) abbrev(bl)
+		cap iefolder new project, projectfolder(${`folder'}) abbrev(bl)
 
 		* Create round folder
-		iefolder new round Baseline, projectfolder(${`folder'}) abbrev(bl)
+		cap iefolder new round Baseline, projectfolder(${`folder'}) abbrev(bl)
+		
+		* Create randomization folder
+		iefolder new round Randomization, projectfolder(${`folder'}) abbrev(rand)
 		
 	}
 	
