@@ -84,7 +84,7 @@
 
 
 * These lines are used to test that the name is not already used (do not edit manually)
-*round*Baseline*bl**************************************************************
+*round*Baseline*bl*Randomization*rand*******************************************
 *untObs*************************************************************************
 *subFld*************************************************************************
 *iefolder will not work properly if the lines above are edited
@@ -119,6 +119,17 @@
    global bl_dt                  "$bl/DataSets" 
    global bl_do                  "${github}/DataWork/Baseline/Dofiles" 
    global bl_out                 "$bl/Output" 
+
+
+*iefolder*1*RoundGlobals*rounds*Randomization*rand******************************
+*iefolder will not work properly if the line above is edited
+
+   *Randomization folder globals
+   global rand                   "$dataWorkFolder/Randomization" 
+   global rand_encrypt           "$encryptFolder/Round Randomization Encrypted" 
+   global rand_dt                "$rand/DataSets" 
+   global rand_do                "$rand/Dofiles" 
+   global rand_out               "$rand/Output" 
 
 *iefolder*1*FolderGlobals*endRounds*********************************************
 *iefolder will not work properly if the line above is edited
@@ -164,6 +175,14 @@
 *iefolder*3*RunDofiles*Baseline*bl**********************************************
 *iefolder will not work properly if the line above is edited
 
+
+
+*iefolder*3*RunDofiles*Randomization*rand***************************************
+*iefolder will not work properly if the line above is edited
+
+   if (0) { //Change the 0 to 1 to run the Randomization master dofile
+       do "$rand/Randomization_MasterDofile.do" 
+   }
 
 *iefolder*3*End_RunDofiles******************************************************
 *iefolder will not work properly if the line above is edited
